@@ -5,10 +5,10 @@ build:
     id: alpine
     cmd: /bin/sh
   steps:
-    - bash-template
-    - script:
-        name: "visualise kubernetes config"
-        code: cat ./atp-binding-plain.yaml
+  - bash-template
+  - script:
+      name: "visualise kubernetes config"
+      code: cat ./atp-binding-plain.yaml
 
 create-atp:
   box:
