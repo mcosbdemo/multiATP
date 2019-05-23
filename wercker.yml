@@ -36,6 +36,16 @@ create-atp-binding:
       insecure-skip-tls-verify: true
       command: create -f ./atp-binding-plain.yaml
 
+create-atp-pre-secret:
+  box:
+    id: alpine
+    cmd: /bin/sh
+  steps:
+  - bash-template
+  - script:
+      name: "visualise kubernetes config"
+      code: cat ./atp-demo-secret.yaml
+
 create-atp-secret:
   box:
     id: alpine
