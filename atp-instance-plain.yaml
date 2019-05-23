@@ -5,13 +5,13 @@
 apiVersion: servicecatalog.k8s.io/v1beta1
 kind: ServiceInstance
 metadata:
-  name: "$OSB_ATP_NAME"
+  name: osb-atp-demo-1
 spec:
   clusterServiceClassExternalName: atp-service
   clusterServicePlanExternalName: $SERVICE_PLAN
   parameters:
     name: $DB_NAME
-    compartmentId: "$COMPARTMENT_ID"
+    compartmentId: $COMPARTMENT_ID
     dbName: $DB_NAME
     cpuCount: 1
     storageSizeTBs: 1
