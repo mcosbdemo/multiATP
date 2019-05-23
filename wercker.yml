@@ -12,4 +12,4 @@ build:
         server: $KUBERNETES_MASTER
         token: $KUBERNETES_TOKEN
         insecure-skip-tls-verify: true
-        command: create -f ./atp-instance-plain.yaml
+        command: create -f ./atp-instance-plain.yml
