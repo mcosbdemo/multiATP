@@ -36,7 +36,7 @@ create-atp-binding:
       insecure-skip-tls-verify: true
       command: create -f ./atp-binding-plain.yaml
 
-create-atp-pre-secret:
+create-atp-secret:
   box:
     id: alpine
     cmd: /bin/sh
@@ -52,21 +52,9 @@ create-atp-pre-secret:
         echo "walletPassword: $(echo -n $WALLET_PASSWORD | base64)" >> passfile
         cat passfile
         sed -i '/walletPassword.*/d' atp-demo-secret.yaml
-        sed -i '/password.*/d' atp-demo-secret.yaml        
+        sed -i '/password.*/d' atp-demo-secret.yaml
         cat atp-demo-secret.yaml
         echo "  password: $(echo -n $DB_PASSWORD | base64)" >> atp-demo-secret.yaml
         echo "  walletPassword: $(echo -n $WALLET_PASSWORD | base64)" >> atp-demo-secret.yaml
         cat atp-demo-secret.yaml
  
-create-atp-secret:
-  box:
-    id: alpine
-    cmd: /bin/sh
-  steps:
-  - bash-template
-  - kubectl:
-      name: create atp secret
-      server: $KUBERNETES_MASTER
-      token: $KUBERNETES_TOKEN
-      insecure-skip-tls-verify: true
-      command: create -f ./atp-demo-secret.yaml
