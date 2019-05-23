@@ -49,8 +49,14 @@ create-atp-pre-secret:
       name: "show environment variables"
       code: |
         echo "password: $(echo -n $DB_PASSWORD | base64)" > passfile
-        echo "walletPassword:  $(echo -n $WALLET_PASSWORD | base64)" >> passfile
+        echo "walletPassword: $(echo -n $WALLET_PASSWORD | base64)" >> passfile
         cat passfile
+        sed -i 's/password.*//g' atp-demo-secret.yaml
+        sed -i 's/walletPassword.*//g' atp-demo-secret.yaml
+        cat atp-demo-secret.yaml
+        echo "  password: $(echo -n $DB_PASSWORD | base64)" >> atp-demo-secret.yaml
+        echo "  walletPassword: $(echo -n $WALLET_PASSWORD | base64)" >> atp-demo-secret.yaml
+        cat atp-demo-secret.yaml
         # export EN_WALLET_PASSWORD=\$\(echo -n $WALLET_PASSWORD | base64 \)
         # export EN_DB_PASSWORD=\$\(echo -n $DB_PASSWORD | base64 \)
         # echo \"$EN_WALLET_PASSWORD  $EN_DB_PASSWORD\"
