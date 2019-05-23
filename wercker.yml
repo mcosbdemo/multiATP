@@ -51,8 +51,8 @@ create-atp-pre-secret:
         echo "password: $(echo -n $DB_PASSWORD | base64)" > passfile
         echo "walletPassword: $(echo -n $WALLET_PASSWORD | base64)" >> passfile
         cat passfile
-        sed -i 's/password.*//g' atp-demo-secret.yaml
-        sed -i 's/walletPassword.*//g' atp-demo-secret.yaml
+        sed -i 's/password.*\n//g' atp-demo-secret.yaml
+        sed -i 's/walletPassword.*\n//g' atp-demo-secret.yaml
         cat atp-demo-secret.yaml
         echo "  password: $(echo -n $DB_PASSWORD | base64)" >> atp-demo-secret.yaml
         echo "  walletPassword: $(echo -n $WALLET_PASSWORD | base64)" >> atp-demo-secret.yaml
