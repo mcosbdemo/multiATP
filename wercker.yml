@@ -6,10 +6,12 @@ build:
     cmd: /bin/sh
   steps:
     - bash-template
-
+    - script:
+        name: "visualise kubernetes config"
+        code: cat atp-instance-plain-deploy.yaml
     - kubectl:
         name: create atp instance
         server: $KUBERNETES_MASTER
         token: $KUBERNETES_TOKEN
         insecure-skip-tls-verify: true
-        command: create -f ./atp-instance-plain.yml
+        command: create -f ./atp-instance-plain.yaml
