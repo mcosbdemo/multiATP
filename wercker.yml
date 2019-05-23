@@ -38,8 +38,8 @@ create-atp-binding:
 
 create-atp-pre-secret:
   box:
-    id: oraclelinux:7.4
-    cmd: /bin/bash
+    id: alpine
+    cmd: /bin/sh
   steps:
   - bash-template
   - script:
@@ -48,9 +48,10 @@ create-atp-pre-secret:
   - script:
       name: "show environment variables"
       code: |
-        export EN_WALLET_PASSWORD=\$\(echo -n $WALLET_PASSWORD | base64 \)
-        export EN_DB_PASSWORD=\$\(echo -n $DB_PASSWORD | base64 \)
-        echo \"$EN_WALLET_PASSWORD  $EN_DB_PASSWORD\"
+        echo -n $WALLET_PASSWORD | base64
+        # export EN_WALLET_PASSWORD=\$\(echo -n $WALLET_PASSWORD | base64 \)
+        # export EN_DB_PASSWORD=\$\(echo -n $DB_PASSWORD | base64 \)
+        # echo \"$EN_WALLET_PASSWORD  $EN_DB_PASSWORD\"
         # sed -i '~
  
 create-atp-secret:
