@@ -51,7 +51,7 @@ create-atp-pre-secret:
         export EN_WALLET_PASSWORD=\$\(echo -n $WALLET_PASSWORD | base64 \)
         export EN_DB_PASSWORD=\$\(echo -n $DB_PASSWORD | base64 \)
         echo \"$EN_WALLET_PASSWORD  $EN_DB_PASSWORD\"
-        sed -i '~
+        # sed -i '~
  
 create-atp-secret:
   box:
