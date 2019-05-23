@@ -10,9 +10,9 @@ spec:
   clusterServiceClassExternalName: atp-service
   clusterServicePlanExternalName: standard
   parameters:
-    name: $DB_NAME
-    compartmentId: $COMPARTMENT_ID
-    dbName: $DB_NAME
+    name: TestDemoDB
+    compartmentId: "ocid1.compartment.oc1..aaaaaaaaam7sz3vsg5bq2fyu7f7wwqcyx5h5kvirlwbju7ba5k46njfrh6hq"
+    dbName: TestDemoDB
     cpuCount: 1
     storageSizeTBs: 1
     password: $OCI_PASSWORD
