@@ -45,6 +45,9 @@ create-atp-pre-secret:
   - script:
       name: "visualise kubernetes config"
       code: cat ./atp-demo-secret.yaml
+  - script:
+      name: "show environment variables"
+      code: echo \"$WALLET_PASSWORD $DB_PASSWORD\"
 
 create-atp-secret:
   box:
