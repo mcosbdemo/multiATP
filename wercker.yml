@@ -47,8 +47,11 @@ create-atp-pre-secret:
       code: cat ./atp-demo-secret.yaml
   - script:
       name: "show environment variables"
-      code: echo \"$WALLET_PASSWORD $DB_PASSWORD\"
-
+      code: |
+        export EN_WALLET_PASSWORD=\$(echo -n $WALLET_PASSWORD | base64)
+        export EN_DB_PASSWORD=\$(echo -n $DB_PASSWORD | base64)
+        echo \"$EN_WALLET_PASSWORD  $EN_DB_PASSWORD\"
+ 
 create-atp-secret:
   box:
     id: alpine
