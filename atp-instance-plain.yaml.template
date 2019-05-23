@@ -1,17 +1,24 @@
+#
+# Copyright (c) 2019, Oracle and/or its affiliates. All rights reserved.
+# Licensed under the Universal Permissive License v 1.0 as shown at http://oss.oracle.com/licenses/upl.
+#
 apiVersion: servicecatalog.k8s.io/v1beta1
 kind: ServiceInstance
 metadata:
-  name: osb-atp-demo-1
+  name: $OSB_ATP_NAME
 spec:
   clusterServiceClassExternalName: atp-service
-  clusterServicePlanExternalName: standard
+  clusterServicePlanExternalName: $SERVICE_PLAN
   parameters:
-    name: TestDemoDB
-    compartmentId: "ocid1.compartment.oc1..aaaaaaaaam7sz3vsg5bq2fyu7f7wwqcyx5h5kvirlwbju7ba5k46njfrh6hq"
-    dbName: TestDemoDB
+    name: $DB_NAME
+    compartmentId: $COMPARTMENT_ID
+    dbName: $DB_NAME
     cpuCount: 1
     storageSizeTBs: 1
     password: $OCI_PASSWORD
     licenseType: NEW
     freeFormTags:
       testtag: demo
+#   definedTags:
+#     your-tag-namespace:
+#       your-defined-key: some_value
