@@ -38,8 +38,8 @@ create-atp-binding:
 
 create-atp-pre-secret:
   box:
-    id: alpine
-    cmd: /bin/sh
+    id: oraclelinux:7.4
+    cmd: /bin/bash
   steps:
   - bash-template
   - script:
