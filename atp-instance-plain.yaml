@@ -12,7 +12,7 @@ spec:
   parameters:
     name: TestDemoDB
     compartmentId: "ocid1.compartment.oc1..aaaaaaaaam7sz3vsg5bq2fyu7f7wwqcyx5h5kvirlwbju7ba5k46njfrh6hq"
-    dbName: MCDemoDB
+    dbName: TestDemoDB
     cpuCount: 1
     storageSizeTBs: 1
     password: foReVER@4Stupid
