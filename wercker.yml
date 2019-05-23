@@ -8,8 +8,8 @@ build:
     - bash-template
 
     - kubectl:
-        name: apply namespace
+        name: create atp instance
         server: $KUBERNETES_MASTER
         token: $KUBERNETES_TOKEN
         insecure-skip-tls-verify: true
-        command: create -f ./atp-instance-plain.yml
+        command: create -f ./atp-instance-plain.yaml
