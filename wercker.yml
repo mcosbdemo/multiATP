@@ -7,11 +7,17 @@ build:
   steps:
   - bash-template
   - kubectl:
-      name: create atp instance
+      name: show pods status
       server: $KUBERNETES_MASTER
       token: $KUBERNETES_TOKEN
       insecure-skip-tls-verify: true
       command: get pods -o wide
+  - svcat:
+      name: show instance status
+      server: $KUBERNETES_MASTER
+      token: $KUBERNETES_TOKEN
+      insecure-skip-tls-verify: true
+      command: get instances
 
 create-atp-instance:
   box:
