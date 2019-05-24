@@ -8,7 +8,7 @@ build:
     - script:
       name: download
       code: |
-        brew install kubernetes-service-catalog-client
+        yum install atomic-enterprise-service-catalog-svcat
         svcat get instances
 
   - kubectl:
