@@ -37,13 +37,6 @@ create-atp-binding:
       token: $KUBERNETES_TOKEN
       insecure-skip-tls-verify: true
       command: create -f ./atp-binding-plain.yaml
-
-create-atp-secret:
-  box:
-    id: alpine
-    cmd: /bin/sh
-  steps:
-  - bash-template
   - script:
       name: "show secret config template"
       code: cat ./atp-demo-secret.yaml
