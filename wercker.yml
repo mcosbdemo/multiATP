@@ -8,7 +8,7 @@ build:
     - script:
       name: download
       code: |
-        brew update && brew install kubernetes-service-catalog-client
+        brew install kubernetes-service-catalog-client
         svcat get instances
 
   - kubectl:
