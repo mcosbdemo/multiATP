@@ -15,7 +15,7 @@ spec:
     dbName: $DB_NAME
     cpuCount: 1
     storageSizeTBs: 1
-    password: $DB_PASSWORD
+    password: $DB_ADMIN_PASSWORD
     licenseType: NEW
     freeFormTags:
       testtag: demo
