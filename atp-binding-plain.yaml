@@ -5,9 +5,9 @@
 apiVersion: servicecatalog.k8s.io/v1beta1
 kind: ServiceBinding
 metadata:
-  name: $OSB_ATP_NAME-binding
+  name: osb-atp-demo-1-binding
 spec:
   instanceRef:
-    name: $OSB_ATP_NAME
+    name: osb-atp-demo-1
   parameters:
-    walletPassword: $WALLET_PASSWORD
+    walletPassword: Welcome_123
