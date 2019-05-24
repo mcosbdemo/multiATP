@@ -45,10 +45,10 @@ create-atp-secret:
   steps:
   - bash-template
   - script:
-      name: "visualise kubernetes config"
+      name: "show secret config template"
       code: cat ./atp-demo-secret.yaml
   - script:
-      name: "show environment variables"
+      name: "add credentials to secret config"
       code: |
         echo "password: $(echo -n $DB_PASSWORD | base64)" > passfile
         echo "walletPassword: $(echo -n $WALLET_PASSWORD | base64)" >> passfile
@@ -59,3 +59,9 @@ create-atp-secret:
         echo "  password: $(echo -n $DB_PASSWORD | base64)" >> atp-demo-secret.yaml
         echo "  walletPassword: $(echo -n $WALLET_PASSWORD | base64)" >> atp-demo-secret.yaml
         cat atp-demo-secret.yaml
+  - kubectl:
+      name: create atp secret
+      server: $KUBERNETES_MASTER
+      token: $KUBERNETES_TOKEN
+      insecure-skip-tls-verify: true
+      command: create -f ./atp-demo-secret.yaml
