@@ -43,9 +43,6 @@ create-atp-binding:
   - script:
       name: "add credentials to secret config"
       code: |
-        echo "password: $(echo -n $DB_PASSWORD | base64)" > passfile
-        echo "walletPassword: $(echo -n $WALLET_PASSWORD | base64)" >> passfile
-        cat passfile
         sed -i '/walletPassword.*/d' atp-demo-secret.yaml
         sed -i '/password.*/d' atp-demo-secret.yaml
         cat atp-demo-secret.yaml
