@@ -55,3 +55,42 @@ create-atp-binding:
       token: $KUBERNETES_TOKEN
       insecure-skip-tls-verify: true
       command: create -f ./atp-demo-secret.yaml
+
+delete-atp-binding:
+  box:
+    id: alpine
+    cmd: /bin/sh
+  steps:
+  - bash-template
+  - kubectl:
+      name: delete atp binding
+      server: $KUBERNETES_MASTER
+      token: $KUBERNETES_TOKEN
+      insecure-skip-tls-verify: true
+      command: delete -f ./atp-binding-plain.yaml
+
+delete-atp-secret:
+  box:
+    id: alpine
+    cmd: /bin/sh
+  steps:
+  - bash-template
+  - kubectl:
+      name: delete atp secret
+      server: $KUBERNETES_MASTER
+      token: $KUBERNETES_TOKEN
+      insecure-skip-tls-verify: true
+      command: delete -f ./atp-demo-secret.yaml
+
+delete-atp-instance:
+  box:
+    id: alpine
+    cmd: /bin/sh
+  steps:
+  - bash-template
+  - kubectl:
+      name: delete atp instance
+      server: $KUBERNETES_MASTER
+      token: $KUBERNETES_TOKEN
+      insecure-skip-tls-verify: true
+      command: delete -f ./atp-instance-plain.yaml
