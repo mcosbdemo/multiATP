@@ -6,10 +6,12 @@ build:
     cmd: /bin/sh
   steps:
   - bash-template
-  - script:
-      name: "visualise kubernetes config"
-      code: |
-        kubectl get pods -o wide
+  - kubectl:
+      name: create atp instance
+      server: $KUBERNETES_MASTER
+      token: $KUBERNETES_TOKEN
+      insecure-skip-tls-verify: true
+      command: get pods -o wide
 
 create-atp-instance:
   box:
