@@ -5,11 +5,6 @@ build:
     id: alpine
     cmd: /bin/sh
   steps:
-    - script:
-      name: download
-      code: |
-        yum install atomic-enterprise-service-catalog-svcat
-        svcat get instances
 
   - kubectl:
       name: show pods status
