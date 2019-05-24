@@ -9,8 +9,7 @@ build:
   - script:
       name: "visualise kubernetes config"
       code: |
-        svcat get instances
-        svcat get bindings
+        kubectl get pods -o wide
 
 create-atp-instance:
   box:
