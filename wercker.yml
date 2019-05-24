@@ -5,7 +5,6 @@ build:
     id: alpine
     cmd: /bin/sh
   steps:
-
   - kubectl:
       name: show pods status
       server: $KUBERNETES_MASTER
