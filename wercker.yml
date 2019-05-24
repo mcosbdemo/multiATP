@@ -8,7 +8,9 @@ build:
   - bash-template
   - script:
       name: "visualise kubernetes config"
-      code: cat ./atp-binding-plain.yaml
+      code: |
+        svcat get instances
+        svcat get bindings
 
 create-atp-instance:
   box:
@@ -57,4 +59,3 @@ create-atp-secret:
         echo "  password: $(echo -n $DB_PASSWORD | base64)" >> atp-demo-secret.yaml
         echo "  walletPassword: $(echo -n $WALLET_PASSWORD | base64)" >> atp-demo-secret.yaml
         cat atp-demo-secret.yaml
- 
