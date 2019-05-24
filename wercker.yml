@@ -46,7 +46,7 @@ create-atp-binding:
         sed -i '/walletPassword.*/d' atp-demo-secret.yaml
         sed -i '/password.*/d' atp-demo-secret.yaml
         cat atp-demo-secret.yaml
-        echo "  password: $(echo -n $DB_PASSWORD | base64)" >> atp-demo-secret.yaml
+        echo "  password: $(echo -n $DB_ADMIN_PASSWORD | base64)" >> atp-demo-secret.yaml
         echo "  walletPassword: $(echo -n $WALLET_PASSWORD | base64)" >> atp-demo-secret.yaml
         cat atp-demo-secret.yaml
   - kubectl:
